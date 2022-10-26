@@ -1,0 +1,116 @@
+<template>
+  <section id="bannerType" class="banner__wrap" :class="attr">
+    <h2 class="blind">배너 영역</h2>
+    <div class="banner__inner">
+      <h3 class="title">강렬한 색의 조화</h3>
+      <p class="desc">
+        더 많은 정보는 아래 링크를 참조해 주세요
+        <a href="#">youtube.com/c/Webstoryboy</a>
+      </p>
+      <span class="small">한난대비</span>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  props: {
+    attr: String
+  }
+};
+</script>
+
+<style>
+.banner__inner {
+  background-image: url(../../assets/img/banner_bg01.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 120px 0;
+  color: #fff;
+}
+
+.banner__inner .title {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+.banner__inner .desc {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 70px;
+}
+
+.banner__inner .desc a {
+  color: #fff;
+  display: block;
+}
+
+.banner__inner .desc a:hover {
+  text-decoration: underline;
+}
+
+.banner__inner .small {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+/* parallax */
+#bannerType {
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: all 1s 0.1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#bannerType.parallax {
+  animation: banner 0.6s forwards;
+}
+
+@keyframes banner {
+  0% {
+    opacity: 0.1;
+    transform: rotate(50deg);
+  }
+
+  25% {
+    opacity: 0.3;
+    transform: rotate(150deg);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: rotate(250deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 960px) {
+  .banner__inner {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner__inner {
+    padding: 80px 0;
+  }
+
+  .banner__inner .title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .banner__inner .desc {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+}
+</style>

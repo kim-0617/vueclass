@@ -15,5 +15,9 @@ npm install -g firebase-tools
 firebase login
 
 ## 배포하기
+
+
+### 1차 완성 : 컴포넌트 사용, props 사용, swiper 사용
+
 firebase deploy
 https://vueclass17.web.app/
