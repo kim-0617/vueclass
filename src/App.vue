@@ -5,7 +5,7 @@
     <ImageSection attr="section nexon" layout="container" />
     <ImageTextSection attr="section nexon gray" layout="container" />
     <CardSection attr="nexon section" layout="container" />
-    <BannerSection attr="gmark" />
+    <BannerSection attr="gmark" :post="post" />
     <TextSection attr="nexon section" layout="container" />
     <FooterLayout attr="nexon section gray" layout="container" />
   </div>
@@ -31,7 +31,16 @@ export default {
     CardSection,
     BannerSection,
     TextSection,
-    FooterLayout
-  }
+    FooterLayout,
+  },
+
+  data() {
+    return {
+      post: {
+        id: 1,
+        title: "My Journey with Vue",
+      },
+    };
+  },
 };
 </script>

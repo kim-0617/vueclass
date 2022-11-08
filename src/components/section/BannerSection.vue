@@ -2,7 +2,9 @@
   <section id="bannerType" class="banner__wrap" :class="attr">
     <h2 class="blind">배너 영역</h2>
     <div class="banner__inner">
-      <h3 class="title">{{ titles[0].text }}</h3>
+      <h3 class="title">
+        {{ titles[0].text }}
+      </h3>
       <p class="desc">
         {{ titles[1].text }}
         <a href="#">{{ titles[2].text }}</a>
@@ -16,7 +18,17 @@
 export default {
   props: {
     attr: String,
+    post: {
+      type: Object,
+      default: () => {
+        return {
+          id: 1,
+          title: "Love Yourself",
+        };
+      },
+    },
   },
+
   data: function () {
     return {
       titles: [
