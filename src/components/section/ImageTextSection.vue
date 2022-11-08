@@ -3,38 +3,22 @@
     <h2 class="blind">유용한 사이트 살펴보기</h2>
     <div class="imgText__inner" :class="layout">
       <div class="imgText__txt">
-        <span>나만 아는 사이트!</span>
-        <h3>유용한 사이트 살펴보기</h3>
-        <p>
-          색에 대한 감각이 없는 사람에게는
-          굉장히 유용한 사이트 입니다.
-        </p>
-        <ul>
+        <span>{{ itTitle.title1 }}</span>
+        <h3>{{ itTitle.title2 }}</h3>
+        <p>{{ itTitle.title3 }}</p>
+        <ul v-for="it in itText" :key="it">
           <li>
-            <a href="#">튜토리얼 사이트</a>
-          </li>
-          <li>
-            <a href="#">레퍼런스 사이트</a>
-          </li>
-          <li>
-            <a href="#">색 추천 사이트</a>
-          </li>
-          <li>
-            <a href="#">색 생성 사이트</a>
-          </li>
-          <li>
-            <a href="#">색상 게임 사이트</a>
-          </li>
-          <li>
-            <a href="#">Youtube 사이트</a>
+            <a :href="it.link">{{ it.name }}</a>
           </li>
         </ul>
       </div>
-      <div class="imgText__img img1">
-        <a href="#">색 추천 사이트</a>
-      </div>
-      <div class="imgText__img img2">
-        <a href="#" class="blue">색상 게임 사이트</a>
+      <div
+        class="imgText__img"
+        v-for="id in itDesc"
+        :key="id"
+        :class="id.class"
+      >
+        <a :href="id.linkTo" :class="id.class2">{{ id.name }}</a>
       </div>
     </div>
   </section>
@@ -44,8 +28,57 @@
 export default {
   props: {
     attr: String,
-    layout: String
-  }
+    layout: String,
+  },
+  data() {
+    return {
+      itTitle: {
+        title1: "나만 아는 사이트!",
+        title2: "유용한 사이트 살펴보기",
+        title3: "색에 대한 감각이 없는 사람에게는 굉장히 유용한 사이트 입니다.",
+      },
+      itText: [
+        {
+          name: "튜토리얼 사이트",
+          link: "/",
+        },
+        {
+          name: "레퍼런스 사이트",
+          link: "/",
+        },
+        {
+          name: "색 추천 사이트",
+          link: "/",
+        },
+        {
+          name: "색 생성 사이트",
+          link: "/",
+        },
+        {
+          name: "색상 게임 사이트",
+          link: "/",
+        },
+        {
+          name: "Youtube 사이트",
+          link: "/",
+        },
+      ],
+      itDesc: [
+        {
+          class: "img1",
+          name: "색 추천 사이트",
+          linkTo: "/",
+          class2: "",
+        },
+        {
+          class: "img2",
+          name: "색상 게임 사이트",
+          linkTo: "/",
+          class2: "blue",
+        },
+      ],
+    };
+  },
 };
 </script>
 

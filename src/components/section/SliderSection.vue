@@ -4,55 +4,26 @@
       :spaceBetween="30"
       :centeredSlides="true"
       :autoplay="{
-      delay: 5000,
-      disableOnInteraction: false,
-    }"
+        delay: 5000,
+        disableOnInteraction: false,
+      }"
       :pagination="{
-      clickable: true,
-    }"
+        clickable: true,
+      }"
       :navigation="true"
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide>
+      <swiper-slide v-for="st in sliderText" :key="st">
         <div class="desc">
-          <span>ARTIST</span>
-          <h3>COLOR'S POWER</h3>
+          <span>{{ st.small }}</span>
+          <h3>{{ st.big }}</h3>
           <p>
-            색은 많은 의미를 내포하고 있습니다.
-            <br />함께 배워보시죠!
+            {{ st.desc }}
           </p>
           <div class="btn">
-            <a href="/">자세히 보기</a>
-            <a href="/" class="black">정보 보기</a>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="desc">
-          <span>ARTIST</span>
-          <h3>COLOR'S POWER</h3>
-          <p>
-            색은 많은 의미를 내포하고 있습니다.
-            <br />함께 배워보시죠!
-          </p>
-          <div class="btn">
-            <a href="/">자세히 보기</a>
-            <a href="/" class="black">정보 보기</a>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="desc">
-          <span>ARTIST</span>
-          <h3>COLOR'S POWER</h3>
-          <p>
-            색은 많은 의미를 내포하고 있습니다.
-            <br />함께 배워보시죠!
-          </p>
-          <div class="btn">
-            <a href="/">자세히 보기</a>
-            <a href="/" class="black">정보 보기</a>
+            <a href="/">{{ st.btn1 }}</a>
+            <a href="/" class="black">{{ st.btn2 }}</a>
           </div>
         </div>
       </swiper-slide>
@@ -75,13 +46,42 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export default {
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
   setup() {
     return {
-      modules: [Autoplay, Pagination, Navigation]
+      modules: [Autoplay, Pagination, Navigation],
     };
-  }
+  },
+  data() {
+    return {
+      sliderText: [
+        {
+          small: "ARTIST",
+          big: "COLOR'S POWER",
+          desc: "색은 많은 의미를 내포하고 있습니다. \n 함께 배워보시죠!",
+          btn1: "자세히 보기",
+          btn2: "정보 보기",
+        },
+
+        {
+          small: "ARTIST",
+          big: "COLOR'S POWER",
+          desc: "색은 많은 의미를 내포하고 있습니다. \n 함께 배워보시죠!",
+          btn1: "자세히 보기",
+          btn2: "정보 보기",
+        },
+
+        {
+          small: "ARTIST",
+          big: "COLOR'S POWER",
+          desc: "색은 많은 의미를 내포하고 있습니다. \n 함께 배워보시죠!",
+          btn1: "자세히 보기",
+          btn2: "정보 보기",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -135,7 +135,7 @@ export default {
   font-weight: 300;
   color: #fff;
   line-height: 1.35;
-  margin-bottom: 130px;
+  margin-bottom: 50px;
 }
 
 .slider__img .desc .btn a {
@@ -240,6 +240,7 @@ export default {
   font-size: 16px;
   background-color: #fff;
   padding: 11px 50px;
+  margin-right: 20px;
 }
 
 .swiper-slide .desc .btn a.black {
@@ -252,6 +253,7 @@ export default {
   width: 30px !important;
   height: 56px !important;
   background-image: url(../../assets/img/slider_icon.svg);
+  right: 35px !important;
 }
 .swiper-button-next {
   background-position: -50px 0;

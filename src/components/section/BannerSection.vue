@@ -2,12 +2,12 @@
   <section id="bannerType" class="banner__wrap" :class="attr">
     <h2 class="blind">배너 영역</h2>
     <div class="banner__inner">
-      <h3 class="title">강렬한 색의 조화</h3>
+      <h3 class="title">{{ titles[0].text }}</h3>
       <p class="desc">
-        더 많은 정보는 아래 링크를 참조해 주세요
-        <a href="#">youtube.com/c/Webstoryboy</a>
+        {{ titles[1].text }}
+        <a href="#">{{ titles[2].text }}</a>
       </p>
-      <span class="small">한난대비</span>
+      <span class="small">{{ titles[3].text }}</span>
     </div>
   </section>
 </template>
@@ -15,8 +15,18 @@
 <script>
 export default {
   props: {
-    attr: String
-  }
+    attr: String,
+  },
+  data: function () {
+    return {
+      titles: [
+        { text: "강렬한 색의 조화" },
+        { text: "더 많은 정보는 아래 링크를 참조해 주세요" },
+        { text: "youtube.com/c/Webstoryboy" },
+        { text: "한난대비" },
+      ],
+    };
+  },
 };
 </script>
 

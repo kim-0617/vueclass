@@ -11,7 +11,7 @@
       <nav class="header__menu">
         <ul>
           <li>
-            <a href="#imageType">이미지 영역!</a>
+            <a href="#imageType">이미지 영역</a>
           </li>
           <li>
             <a href="#imgTextType">이미지 텍스트 영역</a>
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      fonts : String,
-    },
-  }
+export default {
+  props: {
+    fonts: String,
+  },
+};
 </script>
 
 <style>
